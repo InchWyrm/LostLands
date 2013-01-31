@@ -20,7 +20,6 @@ namespace LostLands
         SpriteBatch spriteBatch;
         Screen newScreen;
 
-        Boolean ff;
 
         public Game1()
         {
