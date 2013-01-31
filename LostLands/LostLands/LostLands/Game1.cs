@@ -87,6 +87,8 @@ namespace LostLands
 
             newScreen.Draw(gameTime);
 
+            int counter = 0;
+
             spriteBatch.DrawString(newScreen.font1, newScreen.oldM.X + "," + newScreen.oldM.Y, new Vector2(20, 20), Color.Red);
                 
             spriteBatch.End();
