@@ -60,6 +60,10 @@ namespace LostLands
             // TODO: Unload any non ContentManager content here
         }
 
+        /// <summary>
+        /// Allows the game to run logic such as updating the world,
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
