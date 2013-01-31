@@ -20,7 +20,7 @@ namespace LostLands
         SpriteBatch spriteBatch;
         Screen newScreen;
 
-        Boolean wooh;
+        Boolean wooh = false;
 
         public Game1()
         {
@@ -64,7 +64,7 @@ namespace LostLands
 
         /// <summary>
         /// Allows the game to run logic such as updating the world,
-        /// </sunnary>
+        /// </sunnary>//
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
@@ -88,8 +88,6 @@ namespace LostLands
             spriteBatch.Begin();
 
             newScreen.Draw(gameTime);
-
-            int counter = 0;
 
             spriteBatch.DrawString(newScreen.font1, newScreen.oldM.X + "," + newScreen.oldM.Y, new Vector2(20, 20), Color.Red);
                 
