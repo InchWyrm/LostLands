@@ -30,21 +30,20 @@ namespace LostLands
         public short state;
         bool released;
 
-        Texture2D sleep, hover, pressed;
+        Texture2D sleep, pressed;
         public Rectangle buttonBounds;
 
         MouseState old;
         KeyboardState oldK;
 
         // Draws a button based on state returns state
-        public button(short x, short y, Texture2D sleep, Texture2D hover, Texture2D pressed, Game game):base(game)
+        public button(short x, short y, String sleep, String pressed, Game game):base(game)
         {
 
-            this.sleep = sleep;
-            this.hover = hover;
-            this.pressed = pressed;
+            this.sleep = Content.Load<Texture2D>(@"buttons\"+sleep);
+            this.pressed = Content.Load<Texture2D>(@"buttons\" + pressed);
 
-            buttonBounds = new Rectangle(x, y, sleep.Bounds.Width, sleep.Bounds.Height);
+            buttonBounds = new Rectangle(x, y, this.sleep.Bounds.Width, this.sleep.Bounds.Height);
 
             state = 0;// set initial state to sleep
 
@@ -78,7 +77,7 @@ namespace LostLands
                     else
                     {
                         released = false;
-                        state = 1;
+                        state = 0;
                     }
                 }
                 else
@@ -105,8 +104,6 @@ namespace LostLands
             {
                 case 0:
                     return sleep;
-                case 1:
-                    return hover;
                 case 2:
                     return pressed;
                 default:
@@ -119,5 +116,18 @@ namespace LostLands
             return released;
         }
 
+        public override void Update(GameTime gameTime)
+        {
+            getState();
+            base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+
+            spriteBatch.Draw(getState(), buttonBounds, Color.White);
+            
+            base.Draw(gameTime);
+        }
     }
 }

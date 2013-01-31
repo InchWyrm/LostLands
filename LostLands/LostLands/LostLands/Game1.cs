@@ -19,6 +19,7 @@ namespace LostLands
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Screen newScreen;
+        button jb;
 
 
         public Game1()
@@ -50,6 +51,7 @@ namespace LostLands
 
             // TODO: use this.Content to load your game content here
             newScreen = new Screen(this);
+            jb = new button(100, 100, "add", "add(3)", this);
         }
 
         /// <summary>
@@ -88,9 +90,8 @@ namespace LostLands
 
             newScreen.Draw(gameTime);
 
-            int counter = 49;
-
             spriteBatch.DrawString(newScreen.font1, newScreen.oldM.X + "," + newScreen.oldM.Y, new Vector2(20, 20), Color.Red);
+            jb.Draw(gameTime);
                 
             spriteBatch.End();
 
