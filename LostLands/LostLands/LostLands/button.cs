@@ -10,18 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-///
-/* Austin Yount
- * 480-217-8301
- * ayountcse@yahoo.com
- * ----------------------------------------------
- * This is a resusble button class
- * takes in three pictures and an x and y
- * switches the pictures based on mouse location
- * and will return if the button has been clicked
- * ----------------------------------------------
- */
-///
+
 
 namespace LostLands
 {
@@ -37,14 +26,14 @@ namespace LostLands
         KeyboardState oldK;
 
         // Draws a button based on state returns state
-        public button(short x, short y, Texture2D sleep, Texture2D hover, Texture2D pressed, Game game):base(game)
+        public button(short x, short y, String sleep,  String pressed, Game game)
+            : base(game)
         {
 
-            this.sleep = sleep;
-            this.hover = hover;
-            this.pressed = pressed;
+            this.sleep = Content.Load<Texture2D>("@buttons\\" + sleep);
+            this.pressed = Content.Load<Texture2D>("@buttons\\" + pressed);
 
-            buttonBounds = new Rectangle(x, y, sleep.Bounds.Width, sleep.Bounds.Height);
+            buttonBounds = new Rectangle(x, y, this.sleep.Bounds.Width, this.sleep.Bounds.Height);
 
             state = 0;// set initial state to sleep
 
