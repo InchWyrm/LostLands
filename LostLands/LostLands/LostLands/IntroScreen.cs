@@ -5,7 +5,8 @@ using System.Text;
 
 namespace LostLands
 {
-    class IntroScreen
+    class IntroScreen : Screen
     {
+        
     }
 }
