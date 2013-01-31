@@ -19,6 +19,9 @@ namespace LostLands
         levelSkillScreen iSSM;
         AnimatedSprite Sarge;
         List<LootableItem> onScreenItems = new List<LootableItem>();
+
+        //no need comment
+
         public MainScreen(Game game, ref Player p1, ref GraphicsDeviceManager graphics)
             : base(game)
         {
