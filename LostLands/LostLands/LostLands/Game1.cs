@@ -20,6 +20,8 @@ namespace LostLands
         SpriteBatch spriteBatch;
         Screen newScreen;
 
+        Boolean wooh;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
