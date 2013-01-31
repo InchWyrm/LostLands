@@ -18,11 +18,14 @@ namespace LostLands
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Screen newScreen;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            IsMouseVisible = true;
+
         }
 
         /// <summary>
@@ -47,7 +50,11 @@ namespace LostLands
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            Services.AddService(typeof(SpriteBatch), spriteBatch);
+            Services.AddService(typeof(ContentManager), Content);
+
             // TODO: use this.Content to load your game content here
+            newScreen = new Screen(this);
         }
 
         /// <summary>
@@ -83,7 +90,13 @@ namespace LostLands
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            newScreen.Draw(gameTime);
+
+            spriteBatch.DrawString(newScreen.font1, newScreen.oldM.X + "," + newScreen.oldM.Y, new Vector2(20, 20), Color.Red);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
