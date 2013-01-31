@@ -20,7 +20,7 @@ namespace LostLands
         SpriteBatch spriteBatch;
         Screen newScreen;
 
-        Boolean wooh = false;
+        Boolean wooh = true;
 
         public Game1()
         {
@@ -89,7 +89,7 @@ namespace LostLands
 
             newScreen.Draw(gameTime);
 
-            int counter = 10;
+            int counter = -1;
             spriteBatch.DrawString(newScreen.font1, newScreen.oldM.X + "," + newScreen.oldM.Y, new Vector2(20, 20), Color.Red);
                 
             spriteBatch.End();
